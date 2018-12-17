@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class MoverPala : MonoBehaviour {
 
-    public float velocidad;
+    public float velocidad = 10f;
+    public bool enJuego;
+    public Vector3 movimiento;
+    public Vector3 moveVelocity;
+    public Vector3 posicionInicial;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetAxisRaw("Vertical") == 1){//hacia arriba
-            float ejeY = -1;
-            ejeY = ejeY + Input.GetAxisRaw("Vertical") * velocidad * Time.deltaTime;
+    // Use this for initialization
+    void Start() {
+        //posicionInicial = transform.position;
+        enJuego = true;
+    }
+
+    // Update is called once per frame
+    void Update() {
+        float ejex = 8.73F;
+        float ejeY = Input.GetAxisRaw("Vertical");
+        if (ejeY == 1){//hacia arriba
+            ejeY = ejeY + (Input.GetAxisRaw("Vertical") * velocidad * Time.deltaTime);
+            transform.position = new Vector3(ejex, ejeY, 0);
         }
-        if(Input.GetAxisRaw("Vertical") == -1){//hacia abajo
-            float ejey = Input.GetAxisRaw("Vertical") * velocidad * Time.deltaTime;
+        if(ejeY == -1){//hacia abajo
+            ejeY = ejeY - (Input.GetAxisRaw("Vertical") * velocidad * Time.deltaTime);
+            transform.position = new Vector3(ejex, ejeY, 0);
         }
-	}
+        
+    }
 }

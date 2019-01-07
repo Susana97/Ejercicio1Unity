@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\EmpezarPartida.cs" />
     <Compile Include="Assets\Scripts\MoverBola.cs" />
     <Compile Include="Assets\Scripts\MoverPala.cs" />
+    <Compile Include="Assets\Scripts\MoverPalaIzquierda.cs" />
     <Compile Include="Assets\Scripts\SonidosPelota.cs" />
     <Compile Include="Assets\Scripts\Suelo.cs" />
     <Compile Include="Assets\Scripts\Vidas.cs" />

@@ -18,12 +18,18 @@ public class EmpezarPartida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))
-        {//si se ha pulsado la tecla control derecha o izquierda se inicia el juego.
+        if((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) && Input.GetKey(KeyCode.L))
+        {//si se ha pulsado CTRL - L se inicia dos jugadores.
             vida = new Vidas();
             vida.reiniciarVidas();
-            Console.WriteLine("Hola");
-            SceneManager.LoadScene("Juego");
+            SceneManager.LoadScene("Juego1");
+        }
+
+        if ((Input.GetKey(KeyCode.AltGr) || Input.GetKey(KeyCode.RightAlt) || Input.GetKey(KeyCode.LeftAlt)) && Input.GetKey(KeyCode.L))
+        {//si se ha pulsado Alt - L se inicia un jugador
+            vida = new Vidas();
+            vida.reiniciarVidas();
+            SceneManager.LoadScene("Juego2");
         }
     }
 }

@@ -9,6 +9,8 @@ public class MoverPala : MonoBehaviour {
     public bool enJuego;
     public Vector3 posicionInicial;
     private float eje_y;
+    public ElementoInteractivo botonUp;
+    public ElementoInteractivo botonDown;
 
     // Use this for initialization
     void Start() {
@@ -27,7 +29,7 @@ public class MoverPala : MonoBehaviour {
         }
     }
 
-    void Reset(){
+    public void Reset(){
         transform.position = posicionInicial;
     }
 }

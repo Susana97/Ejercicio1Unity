@@ -7,8 +7,9 @@ public class MoverBola : MonoBehaviour {
     public float velocidadInicial = 400f;
     public Rigidbody rig;
     public Transform barra;
-    bool enJuego = false;
+    public bool enJuego = false;
     Vector3 posicionInicial;
+    public ElementoInteractivo pantallaCompleta;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +18,7 @@ public class MoverBola : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (enJuego == false && Input.GetKeyDown(KeyCode.LeftControl)){
+        if (enJuego == false && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))){
            
             enJuego = true; //se inicia el juego. 
             transform.SetParent(null); //la bola deja de ser hija de la barra.
@@ -27,7 +28,7 @@ public class MoverBola : MonoBehaviour {
         }
 	}
 
-    void Reset(){
+    public void Reset(){
         transform.position = posicionInicial;
         transform.SetParent(barra);//la bola vuelve a ser hija de la pala.
         enJuego = false;

@@ -8,6 +8,8 @@ public class EmpezarPartida : MonoBehaviour
 {
 
     public Vidas vida;
+    public ElementoInteractivo botonUnJugador;
+    public ElementoInteractivo botonDosJugadores;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,20 @@ public class EmpezarPartida : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (botonUnJugador.pulsado)
+        {
+            vida = new Vidas();
+            vida.reiniciarVidas();
+            SceneManager.LoadScene("Juego1");
+        }
+
+        if (botonDosJugadores.pulsado)
+        {
+            vida = new Vidas();
+            vida.reiniciarVidas();
+            SceneManager.LoadScene("Juego2");
+        }
+
         if((Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) && Input.GetKey(KeyCode.L))
         {//si se ha pulsado CTRL - L se inicia dos jugadores.
             vida = new Vidas();

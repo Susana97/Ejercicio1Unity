@@ -18,7 +18,7 @@ public class MoverBola : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (enJuego == false && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl))){
+        if (enJuego == false && (Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl) || pantallaCompleta.pulsado)){
            
             enJuego = true; //se inicia el juego. 
             transform.SetParent(null); //la bola deja de ser hija de la barra.

@@ -24,10 +24,19 @@ public class MoverPala : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || botonUp.pulsado || botonDown.pulsado)
         {
-
-            eje_y = Input.GetAxisRaw("Vertical") * velocidad * Time.deltaTime;
+            if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+            {
+                eje_y = Input.GetAxisRaw("Vertical") * velocidad * Time.deltaTime;
+            }
+            else if (botonUp.pulsado)
+            {
+                eje_y = 1 * velocidad * Time.deltaTime;
+            }else if (botonDown.pulsado)
+            {
+                eje_y = -1 * velocidad * Time.deltaTime;
+            }
             //se calcula el nuevo valor de y.
-            if (Input.GetAxisRaw("Vertical") != 0)
+            if (eje_y != 0)
             {//si se pulsa las teclas de arriba o abajo.
                 if ((transform.position.y < 2.01 && eje_y > 0) || (transform.position.y > -2.01 && eje_y < 0))
                 {
